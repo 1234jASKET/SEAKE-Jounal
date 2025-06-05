@@ -1,0 +1,1 @@
+web: gunicorn seake_journal.wsgi --workers 3

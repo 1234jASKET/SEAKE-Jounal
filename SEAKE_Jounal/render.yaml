@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: seake-journal
+    env: python
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "gunicorn seake_journal.wsgi --workers 3"
+    envVars:
+      - key: DJANGO_SECRET_KEY
+        value: "ta-clé-secrète"
+      - key: DJANGO_DEBUG
+        value: "False"
+      - key: DATABASE_URL
+        value: "sqlite:///db.sqlite3"
